@@ -20,7 +20,7 @@
                 <b-row>
                     <!--INPUT WITH RANGE-->
                     <b-col >
-                        <b-form-input type="range" v-model="max_price" min="1000" max="30000" step="1000"></b-form-input>
+                        <b-form-input type="range" v-model="max_price" min="1000" max="70000" step="1000"></b-form-input>
                         <h6>Máximo: {{ max_price }} €</h6>
                     </b-col>
                 </b-row>
@@ -33,30 +33,34 @@
 
         <b-container v-for="(car, index) in cars" :key="index">
             <div v-if="brand_selected == null || car.brand == brand_selected">
-                <h1 >{{ car.brand }}</h1>
+                <h1 class="hover-mouse" @click="openInNewTab(car.link)">{{ car.brand }}</h1>
                 <div class="row row-cols-sm-1 row-cols-md-2 row-cols-lg-3 row-cols-xl-4">
                     <div class="col mb-4" v-for="(model, model_index) in car.models" :key="model_index">
-                        <b-card v-if="comparePrice(model.price)"
+                        <b-card 
+                            v-bind:class="[isDark ? darkCardClass : lightCardClass]"
+                            v-if="comparePrice(model.price)"
                             :title="computeTitle(model.name)"
-                            img-src="https://picsum.photos/600/300/?image=25"
+                            :img-src="computeImage(model.icon)"
                             img-top
                         >
+                            <!--
                             <b-card-text>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus, sapiente.
                             </b-card-text>
+                            -->
 
                             <b-card-text class="price">
                                 {{ model.price }} €
                             </b-card-text>
 
                             <div class="text-center">
-                                <b-button variant="primary" @click="changeState(false)">Más información</b-button>
+                                <b-button variant="primary" @click="openInNewTab(model.link)">Más información</b-button>
                             </div>
                         </b-card>
                     </div>
                 </div>
-            </div>
-            <div v-if="index != cars.length - 1">
-                <hr/>
+                <div v-if="index != cars.length - 1">
+                    <hr/>
+                </div>
             </div>
         </b-container>
         
@@ -87,16 +91,24 @@ export default {
             lightClass: "lightMode",
             alwaysClass: "alwaysMode",
             lightOrDark: "Light",
+            darkCardClass: "darkCardClass",
+            lightCardClass: "lightCardClass",
             change_state: false,
             my_stages: stages_constants, //copiar los STAGES en variable local
             cars: CARS,
             brands: [
-                { text: "Todas", value: null },
-                { text: "Seat", value: "Seat" },
-                { text: "Dacia", value: "Dacia" }
+                { text: "Todas"  , value: null },
+                { text: "Seat"   , value: "Seat" },
+                { text: "Dacia"  , value: "Dacia" },
+                { text: "Kia"    , value: "Kia" },
+                { text: "Citroen", value: "Citroen" },
+                { text: "Ford"   , value: "Ford" },
+                { text: "Renault", value: "Renault" },
+                { text: "Fiat"   , value: "Fiat" },
+                { text: "Peugeot", value: "Peugeot" }
             ],
             brand_selected: null,
-            max_price: 20000
+            max_price: 40000
         };
     },
     computed: {
@@ -129,10 +141,16 @@ export default {
         computeTitle( title ) {
             return title;
         },
+        computeImage( img ) {
+            return img;
+        },
         comparePrice( price ) {
             var p = parseFloat( price );
             var max = parseFloat( this.max_price );
             return ( p <= max );
+        },
+        openInNewTab(url) {
+            window.open(url, '_blank').focus();
         }
     },
     watch: {
@@ -160,6 +178,10 @@ export default {
     min-height: 100vh;
 }
 
+.hover-mouse:hover {
+    cursor: pointer;
+}
+
 .darkMode {
     background: rgb(62, 62, 63);
 }
@@ -174,6 +196,11 @@ export default {
     margin-top: -5px;
 }
 
+.darkCardClass {
+    background: rgb(35, 35, 36);
+    border: 2px solid white;
+}
+
 .lightMode {
     background: rgb(240, 234, 230);
 }
@@ -186,6 +213,26 @@ export default {
     border: 1px solid black;
     background-color: black;
     margin-top: -5px;
+}
+
+.lightCardClass {
+    border: 2px solid rgb(235, 221, 197);
+}
+
+.lightCardClass:hover {
+    transition: 0.7s;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+    top: -4px;
+    border: 2px solid #9ec1ee;
+    background-color: rgb(176, 232, 236);
+}
+
+.darkCardClass:hover {
+    transition: 0.7s;
+    box-shadow: 0px 4px 8px rgba(228, 220, 220, 0.3);
+    top: -4px;
+    border: 2px solid #9ec1ee;
+    background-color: rgb(52, 103, 107);
 }
 
 .fluid-container.footer{
