@@ -97,14 +97,15 @@ export default {
             my_stages: stages_constants, //copiar los STAGES en variable local
             cars: CARS,
             brands: [
-                { text: "Todas"  , value: null },
-                { text: "Seat"   , value: "Seat" },
-                { text: "Dacia"  , value: "Dacia" },
-                { text: "Kia"    , value: "Kia" },
+                { text: "Todas"  , value: null      },
+                { text: "Seat"   , value: "Seat"    },
+                { text: "Dacia"  , value: "Dacia"   },
+                { text: "Kia"    , value: "Kia"     },
                 { text: "Citroen", value: "Citroen" },
-                { text: "Ford"   , value: "Ford" },
+                { text: "Ford"   , value: "Ford"    },
                 { text: "Renault", value: "Renault" },
-                { text: "Fiat"   , value: "Fiat" },
+                { text: "Fiat"   , value: "Fiat"    },
+                { text: "Nissan" , value: "Nissan"  },
                 { text: "Peugeot", value: "Peugeot" }
             ],
             brand_selected: null,

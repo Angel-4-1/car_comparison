@@ -197,6 +197,32 @@ export const CARS = [
         ]
     },
     {
+        brand: "Nissan", icon: "assets/car-icon.png", link: "https://www.nissan.es/",
+        models: [
+            {
+                price: 14150, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/micra.html', name: 'Micra', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/es/vehicles/Nuevo_Micra/Desktop_Nuevo_Micra.png.ximg.l_3_m.smart.png'
+            }, 
+            {
+                price: 18471, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/juke.html', name: 'Juke', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/2019_NEW_NISSAN_JUKE/packshot-new-juke.JPG.ximg.l_3_m.smart.jpg'
+            }, 
+            {
+                price: 21000, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/leaf.html', name: 'LEAF', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/es/vehicles/Nuevo%20LEAF/LEAF-3000x1160_logo.jpg.ximg.l_3_m.smart.jpg'
+            }, 
+            {
+                price: 25203, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/navara.html', name: 'NAVARA', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/es/vehicles/NAVARA/d23/Desktop_Navara.jpg.ximg.l_3_m.smart.jpg'
+            },
+            {
+                price: 25775, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/qashqai.html', name: 'Nuevo Qashqai', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/2020_Qashqai_Full_PES/GRADES/20TDIEULHD_NEW_QASHQAI_PS_003.png.ximg.l_3_m.smart.png'
+            }, 
+            {
+                price: 30450, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/x-trail.html', name: 'X-Trail', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/x-trail/2_minor_change/eulhd/packshot/876125a-F77-17TDIEULHD_X-TRAIL_TEKNA_AMBER_003.jpg.ximg.l_3_m.smart.jpg'
+            }, 
+            {
+                price: 38500, link: 'https://www.nissan.es/vehiculos/nuevos-vehiculos/e-nv200-evalia.html', name: 'E-NV200 EVALIA', icon: 'https://www-europe.nissan-cdn.net/content/dam/Nissan/nissan_europe/vehicles/e-nv200-evalia/me0/version/packshot/Desktop_e-NV200_Evalia_zero_emission.png.ximg.l_3_m.smart.png'
+            }
+        ]
+    },
+    {
         brand: "Peugeot", icon: "assets/car-icon.png", link: "https://www.peugeot.es/",
         models: [
             
