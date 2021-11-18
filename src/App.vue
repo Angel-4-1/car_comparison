@@ -1,7 +1,11 @@
 <template>
   <div>
-    <div v-if="current_stage.id == my_stages.INTRO_STAGE"><Home/></div>
-    <div v-if="current_stage.id == my_stages.CARD_STAGE"><Cards/></div>
+    <transition name="slide">
+      <div v-if="current_stage.id == my_stages.INTRO_STAGE"><Home/></div>
+    </transition>
+    <transition name="slide">
+      <div v-if="current_stage.id == my_stages.CARD_STAGE"><Cards/></div>
+    </transition>
   </div>
 </template>
 
@@ -39,6 +43,19 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.slide-enter-active, .slide-leave-active {
+  transition: .75s ease-out;
+}
+
+
+.slide-enter {
+  transform: translate(100%, 0);
+}
+
+.slide-leave {
+  transform: translate(-100%, 0)
 }
 
 </style>
